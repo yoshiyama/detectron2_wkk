@@ -3,7 +3,7 @@
 # Use Cascade + Deform Conv to improve localization.
 _BASE_: "../COCO-PanopticSegmentation/Base-Panoptic-FPN.yaml"
 MODEL:
-  WEIGHTS: "../checkpoints/model_final_be35db.pkl"
+  WEIGHTS: "catalog://ImageNetPretrained/FAIR/R-101-GN"
   RESNETS:
     DEPTH: 101
     NORM: "GN"

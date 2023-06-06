@@ -6,7 +6,7 @@ MODEL:
 #  WEIGHTS: ""
   MASK_ON: True
   ROI_HEADS:
-    NUM_CLASSES: 8
+    NUM_CLASSES: 2
 # This is similar to the setting used in Mask R-CNN paper, Appendix A
 # But there are some differences, e.g., we did not initialize the output
 # layer using the corresponding classes from COCO
@@ -26,3 +26,4 @@ SOLVER:
   IMS_PER_BATCH: 8
 TEST:
   EVAL_PERIOD: 8000
+OUTPUT_DIR: "checkpoints/model"
