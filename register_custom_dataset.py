@@ -1,11 +1,15 @@
 # register_cusstom_dataset.py
-# 以下は、COCO形式のデータセットをDetectron2に登録するためのサンプルPythonファイルの内容です：
-# このregister_dataset.pyファイルを実行することで、カスタムデータセットがDetectron2に登録されます。dataset_root_pathを適切なディレクトリに変更することで、あなたの環境に合わせてデータセットの場所を指定することができます。
-#
-# このスクリプトを実行した後、train_net.pyを実行してトレーニングを開始することができます。
+# Below is the content of a sample Python file for registering a dataset in the COCO format with Detectron2:
+# By executing this register_dataset.py file, a custom dataset gets registered with Detectron2. By changing the dataset_root_path to the appropriate directory, you can specify the location of the dataset according to your environment.
+
+# Usage:python register_custom_dataset.py --dataset_root ./datasets
+
+# After running this script, you can execute train_net.py to start the training.
+
 
 from detectron2.data.datasets import register_coco_instances
 import os
+import argparse
 
 
 def register_custom_datasets(dataset_root):
@@ -28,9 +32,11 @@ def register_custom_datasets(dataset_root):
 
 
 if __name__ == "__main__":
-    # Assuming datasets are stored in a directory named "datasets" in the current directory
-    dataset_root_path = "./datasets"
+    parser = argparse.ArgumentParser(description="Register custom datasets in COCO format with Detectron2.")
+    parser.add_argument("--dataset_root", required=True, help="Root directory where the datasets are stored.")
+
+    args = parser.parse_args()
 
     # Register the datasets
-    register_custom_datasets(dataset_root_path)
+    register_custom_datasets(args.dataset_root)
     print("Datasets registered!")
